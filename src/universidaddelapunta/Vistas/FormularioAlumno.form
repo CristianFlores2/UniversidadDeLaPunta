@@ -49,7 +49,6 @@
                           <Component id="jTNombre" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
                           <Component id="jTApellido" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
                           <Component id="jTDocumento" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                          <Component id="jDCFechaNacimiento" min="-2" max="-2" attributes="0"/>
                           <Component id="jRBEstado" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -91,11 +90,8 @@
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Component id="jDCFechaNacimiento" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -176,8 +172,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
       </Properties>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDCFechaNacimiento">
     </Component>
   </SubComponents>
 </Form>
