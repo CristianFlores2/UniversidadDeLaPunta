@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/Entidades/Alumno.java</file>
-            <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/Entidades/Inscripcion.java</file>
+            <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/AccesoADatos/AlumnoData.java</file>
             <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/AccesoADatos/conexion.java</file>
             <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/UniversidadDeLaPunta.java</file>
+            <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/AccesoADatos/InscripcionData.java</file>
+            <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/AccesoADatos/materiaData.java</file>
             <file>file:/C:/Users/crist/Documents/tp%20de%20cristian/programar_4.0/java_aplicacion/UniversidadDeLaPunta/src/universidaddelapunta/Entidades/Materia.java</file>
         </group>
     </open-files>
