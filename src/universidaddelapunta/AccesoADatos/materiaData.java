@@ -5,6 +5,7 @@ package universidaddelapunta.AccesoADatos;
     import java.sql.ResultSet;
     import java.sql.SQLException;
     import java.sql.Statement;
+import java.util.List;
     import javax.swing.JOptionPane;
 
 public class materiaData {
@@ -44,7 +45,14 @@ public materiaData(){
         }
     }
     
-    public void eliminarAlumno(int id){
+    public Materia buscarMateria(int id){
+        return null;
+    }
+    
+    public void modificarMateria(Materia m){
+    }
+    
+    public void eliminarMateria(int id){
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
         
         try {
@@ -64,4 +72,7 @@ public materiaData(){
         
     }
 
+    public List<Materia> listarMaterias(){
+        return null;
+    }
 }
