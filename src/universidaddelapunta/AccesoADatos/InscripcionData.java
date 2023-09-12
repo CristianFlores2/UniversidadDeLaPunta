@@ -49,9 +49,11 @@ public class InscripcionData {
             while (rs.next()) {                
                 Inscripcion in=new Inscripcion();
                 in.setIdInscripcion(rs.getInt("id_inscripcion"));
-                in.setNota(rs.getInt("nota"));                
-                in.setAlumno(rs.getString("id_alumno"));
-                in.setMateria(rs.("id_materia"));
+                in.setNota(rs.getInt("nota")); 
+                Materia m=matData.buscarMateria(rs.getInt("id_materia"));
+                Alumno a=aluData.buscarAlumno(rs.getInt("id_alumno"));
+                in.setAlumno(a);                
+                in.setMateria(m);
                 lista.add(in);
             }
             ps.close();
@@ -73,9 +75,11 @@ public class InscripcionData {
             while (rs.next()) {                
                 Inscripcion in=new Inscripcion();
                 in.setIdInscripcion(rs.getInt("id_inscripcion"));
-                in.setNota(rs.getInt("nota"));                
-                in.setAlumno(rs.("id_alumno"));
-                in.setMateria(rs.("id_materia"));
+                in.setNota(rs.getInt("nota"));    
+                Materia m=matData.buscarMateria(rs.getInt("id_materia"));
+                Alumno a=aluData.buscarAlumno(rs.getInt("id_alumno"));
+                in.setAlumno(a);                
+                in.setMateria(m);
                 lista.add(in);
             }
             ps.close();

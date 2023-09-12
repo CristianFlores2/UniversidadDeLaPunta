@@ -4,18 +4,25 @@
  * and open the template in the editor.
  */
 package universidaddelapunta.Vistas;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 import universidaddelapunta.AccesoADatos.AlumnoData;
+import universidaddelapunta.AccesoADatos.conexion;
+import universidaddelapunta.Entidades.Alumno;
 /**
  *
  * @author carri
  */
 public class FormularioAlumno extends javax.swing.JInternalFrame {
-
+private AlumnoData aluData;
+private Connection con;
     /**
      * Creates new form FormularioAlumno
      */
     public FormularioAlumno() {
-        initComponents();       
+        initComponents();  
+        this.con=conexion.getConexion();
+        this.aluData=new AlumnoData();
     }
 
     /**
@@ -60,12 +67,6 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jLabel2.setText("Apellido");
 
         jLabel3.setText("Nombre");
-
-        jTDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTDocumentoActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Estado");
 
@@ -156,13 +157,18 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDocumentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTDocumentoActionPerformed
-
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
-         
+        try{
+        int doc=Integer.parseInt(jTDocumento.getText());
+        Alumno a= aluData.buscarAlumnoPorDNI(doc);
+        jTApellido.setText(a.getApellido());
+        jTNombre.setText(a.getNombre());
+        jRBEstado.setSelected(a.isEstado());
+        fecha.setDate(java.sql.Date.valueOf(a.getFechaNac()));
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(this, "Error "+e.getMessage());
+        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
 

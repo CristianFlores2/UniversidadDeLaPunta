@@ -106,8 +106,8 @@ public class AlumnoData {
         return alumno;
     }
     public Alumno buscarAlumnoPorDNI(int dni) {
-        String sql="select id_alumno,dni,apellido,nombre,fechaNac from alumno where dni=? and estado=1";
         Alumno alumno=null;
+        String sql="select id_alumno,dni,apellido,nombre,fechaNac from alumno where dni=? and estado=1";        
         try {           
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
@@ -137,10 +137,8 @@ public class AlumnoData {
         ArrayList<Alumno> alumnos=new ArrayList<>();
         try {           
             PreparedStatement ps = con.prepareStatement(sql);
-
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                
+            while (rs.next()) {               
                 Alumno alumno=new Alumno();
                 alumno.setIdAlumno(rs.getInt("id_alumno"));
                 alumno.setDni(rs.getInt("dni"));
