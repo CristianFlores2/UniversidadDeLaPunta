@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidaddelapunta.AccesoADatos.conexion;
 import universidaddelapunta.AccesoADatos.InscripcionData;
 import universidaddelapunta.Entidades.Materia;
 import universidaddelapunta.AccesoADatos.materiaData;
@@ -23,6 +22,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
         public boolean isCellEditable(int f, int c){
             return false;
         }
+        //
     };
    
    
@@ -32,6 +32,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
         modificarTabla();
         llenarTabla();
         borrarlista();
+        //
     }
 
   
@@ -137,6 +138,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
         modelo.addColumn("Apellido");
         modelo.addColumn("Nombre");
         jTMateria.setModel(modelo);
+        //
         
     }
     private void comboBox(){
@@ -145,17 +147,19 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
             String i=m.getNombre();
             jCBMateria.addItem(i);
         }
+        //
     }
     
     public void borrarlista(){
         int a=modelo.getRowCount()-1;
             for(int i=a;i>=0;i--){
              modelo.removeRow(i);
-            }   
+            }
+            //
     }
  
     private void llenarTabla() {
-        
+        //
     }
     
    
