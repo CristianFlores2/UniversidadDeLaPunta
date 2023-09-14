@@ -5,6 +5,10 @@
  */
 package universidaddelapunta.Vistas;
 
+
+import universidaddelapunta.AccesoADatos.materiaData;
+import universidaddelapunta.Entidades.Materia;
+
 /**
  *
  * @author carri
@@ -50,6 +54,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jLabel5.setText("Estado");
 
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
         jTCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,8 +67,18 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
 
@@ -151,6 +170,28 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTCodigoActionPerformed
 
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        Materia ma = new Materia(Integer.parseInt(jTCodigo.getText()), jTNombre.getText(), Integer.parseInt(jTAño.getText()), jCBEstado.getVerifyInputWhenFocusTarget());
+        
+        materiaData a = new materiaData();
+        
+        a.guardarMateria(ma);
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        
+        
+        
+        materiaData a = new materiaData();
+        
+        a.eliminarMateria(jTNombre.getText());
+        
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        limpiar();
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
@@ -168,4 +209,14 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTCodigo;
     private javax.swing.JTextField jTNombre;
     // End of variables declaration//GEN-END:variables
+
+private void limpiar(){
+    
+        jTAño.setText("");
+        jTNombre.setText("");
+        jTCodigo.setText("");
+        jCBEstado.setSelected(false);
+
+}
+
 }

@@ -34,14 +34,14 @@ public materiaData(){
             ResultSet rs = ps.getGeneratedKeys();
             
             if(rs.next()){
-                m.setIdMateria(rs.getInt("IdMateria"));
+                m.setIdMateria(rs.getInt(1));
             JOptionPane.showMessageDialog(null, "Materia añadida con exito");
             }
             
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia  " + ex.getMessage());
             
         }
     }
@@ -90,13 +90,13 @@ public materiaData(){
         }
     }
     
-    public void eliminarMateria(int id){
-        String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
+    public void eliminarMateria(String n){
+        String sql = "UPDATE materia SET estado = 0 WHERE nombre = ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             
-            ps.setInt(1, id);
+            ps.setString(1, n);
             int fila = ps.executeUpdate();
             
             if(fila == 1){
