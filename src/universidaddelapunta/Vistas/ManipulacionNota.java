@@ -8,6 +8,7 @@ package universidaddelapunta.Vistas;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidaddelapunta.AccesoADatos.AlumnoData;
 import universidaddelapunta.AccesoADatos.InscripcionData;
@@ -79,6 +80,7 @@ private materiaData mdata;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jBSalir = new javax.swing.JButton();
+        jBguardar = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -109,12 +111,21 @@ private materiaData mdata;
 
         jBSalir.setText("Salir");
 
+        jBguardar.setText("guardar");
+        jBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBguardarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(189, 189, 189)
+                .addComponent(jBguardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBSalir)
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
@@ -144,7 +155,9 @@ private materiaData mdata;
                 .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jBSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBSalir)
+                    .addComponent(jBguardar))
                 .addGap(33, 33, 33))
         );
 
@@ -153,12 +166,28 @@ private materiaData mdata;
 
     private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
         // TODO add your handling code here:
-        
+        cargarInscriptas();
     }//GEN-LAST:event_jCBAlumnoActionPerformed
+
+    private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
+        // TODO add your handling code here:
+        int fila = jTable1.getSelectedRow();
+        if(fila!=-1){            
+            int idma=(Integer)modelo.getValueAt(fila, 0);
+            Alumno idal=(Alumno)jCBAlumno.getSelectedItem();
+            int alumno=idal.getIdAlumno();
+            int nota=(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota a modificar")));
+            idata.actualizarNota(alumno, idma, nota);
+            borrarlista();
+        }else{
+            JOptionPane.showMessageDialog(this, "Usted debe seleccionar un alumno");
+        }
+    }//GEN-LAST:event_jBguardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalir;
+    private javax.swing.JButton jBguardar;
     private javax.swing.JComboBox<Alumno> jCBAlumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -171,4 +200,20 @@ public void borrarlista(){
         modelo.removeRow(i);
     }
 }
+public void cargarInscriptas(){
+        borrarlista();
+        Alumno a=(Alumno)jCBAlumno.getSelectedItem();
+        if(a!=null){
+        ArrayList<Materia> lista= (ArrayList) idata.obtenerMateriasCursadas(a.getIdAlumno());
+        for(Materia mat:lista){
+            for(Inscripcion insc:in){
+                if(insc.getAlumno().getIdAlumno()==a.getIdAlumno()){
+                    modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),insc.getNota()});
+                    }               
+                }
+            }       
+        }else{
+            JOptionPane.showMessageDialog(this, "Usted debe seleccionar un alumno");
+        }
+    }
 }
