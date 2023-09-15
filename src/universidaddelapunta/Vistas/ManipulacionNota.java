@@ -110,6 +110,11 @@ private materiaData mdata;
         jScrollPane1.setViewportView(jTable1);
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jBguardar.setText("guardar");
         jBguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +189,10 @@ private materiaData mdata;
         }
     }//GEN-LAST:event_jBguardarActionPerformed
 
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalir;
@@ -203,6 +212,7 @@ public void borrarlista(){
 public void cargarInscriptas(){
         borrarlista();
         Alumno a=(Alumno)jCBAlumno.getSelectedItem();
+        in=idata.obtenerInscripciones();
         if(a!=null){
         ArrayList<Materia> lista= (ArrayList) idata.obtenerMateriasCursadas(a.getIdAlumno());
         for(Materia mat:lista){

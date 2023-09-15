@@ -44,7 +44,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jCBMateria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTMateria = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jBSalir = new javax.swing.JButton();
 
         setClosable(true);
@@ -61,7 +61,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
             }
         });
 
-        jTMateria.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,9 +72,14 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTMateria);
+        jScrollPane1.setViewportView(jTable1);
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,9 +123,13 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-
         
+        llenarTabla();
     }//GEN-LAST:event_jCBMateriaActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -129,7 +138,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTMateria;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
     private void modificarTabla(){
@@ -137,7 +146,7 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
         modelo.addColumn("Dni");
         modelo.addColumn("Apellido");
         modelo.addColumn("Nombre");
-        jTMateria.setModel(modelo);
+        jTable1.setModel(modelo);
         //
         
     }
@@ -159,8 +168,24 @@ public class AlumnosPorMateria extends javax.swing.JInternalFrame {
     }
  
     private void llenarTabla() {
-        //
+    borrarlista();
+    materiaData mat=new materiaData();
+    InscripcionData i=new InscripcionData();
+    String  materiaSeleccionada=(String) jCBMateria.getSelectedItem();
+    ArrayList <Alumno> alumnos=new ArrayList();
+             
+      for(Materia m: mat.listarMaterias()){
+                
+           if(m.getNombre().equalsIgnoreCase(materiaSeleccionada)){
+             
+               for(Alumno a: i.obtenerAlumnosXMateria(m.getIdMateria())){
+                
+                modelo.addRow(new Object[]{
+                  a.getIdAlumno(),a.getDni(),a.getApellido(),a.getNombre()  });
+               }
+            }
     }
     
    
+}
 }

@@ -115,7 +115,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem6.setText("salir");
+        jMenuItem6.setText("cerrar cesion");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);

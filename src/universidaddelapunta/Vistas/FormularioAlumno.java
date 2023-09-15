@@ -52,9 +52,9 @@ private Connection con;
         jRBEstado = new javax.swing.JRadioButton();
         jBBuscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        fecha = new com.toedter.calendar.JDateChooser();
         jtid = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jDC = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
         setMaximizable(true);
@@ -142,17 +142,17 @@ private Connection con;
                             .addComponent(jLabel7))
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtid, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(jTApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(jTDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(jRBEstado)
-                                    .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jDC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(jTApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(jTDocumento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(jRBEstado, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBBuscar))
-                            .addComponent(jtid, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(58, Short.MAX_VALUE))
+                                .addComponent(jBBuscar)))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,17 +180,17 @@ private Connection con;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRBEstado)
                     .addComponent(jLabel4))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                    .addComponent(jDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,7 +205,7 @@ private Connection con;
         jTApellido.setText(a.getApellido());
         jTNombre.setText(a.getNombre());
         jRBEstado.setSelected(a.isEstado());
-        fecha.setDate(java.sql.Date.valueOf(a.getFechaNac()));
+        jDC.setDate(java.sql.Date.valueOf(a.getFechaNac()));
         }catch(NullPointerException e){
             JOptionPane.showMessageDialog(this, "Error "+e.getMessage());
         }
@@ -218,26 +218,21 @@ private Connection con;
         jTApellido.setText("");
         jTNombre.setText("");
         jRBEstado.setEnabled(false);
-        fecha.setDate(java.sql.Date.valueOf(LocalDate.now()));
+        jDC.setDate(java.sql.Date.valueOf(LocalDate.now()));
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        // TODO add your handling code here:
-        int id=Integer.parseInt(jtid.getText());
         int dni=Integer.parseInt(jTDocumento.getText());
         String a=jTApellido.getText();
         String n=jTNombre.getText();
         boolean e=jRBEstado.isEnabled();
         SimpleDateFormat f=new SimpleDateFormat("dd-MM-yyyy");
-        String fech=f.format(fecha.getDate());
+        String fech=f.format(jDC.getDate());
         LocalDate fechan= LocalDate.parse(fech,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        Alumno al=new Alumno(dni,a,n,fechan,e);
-        if(id!=al.getIdAlumno() && dni!=al.getDni()){
-        aluData.guardarAlumno(al);
-        }else{
-            Alumno alm=new Alumno(id,dni,a,n,fechan,e);
-            aluData.modificarAlumno(alm);
-        }
+        
+        Alumno alm = new Alumno(dni, a, n, fechan, e);
+        
+        aluData.guardarAlumno(alm);              
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
@@ -253,12 +248,12 @@ private Connection con;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBNuevo;
     private javax.swing.JButton jBSalir;
+    private com.toedter.calendar.JDateChooser jDC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

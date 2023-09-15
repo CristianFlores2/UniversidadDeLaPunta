@@ -51,22 +51,22 @@
                       </Group>
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jtid" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jDC" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTNombre" alignment="0" pref="204" max="32767" attributes="0"/>
                                   <Component id="jTApellido" alignment="0" pref="204" max="32767" attributes="0"/>
                                   <Component id="jTDocumento" alignment="0" pref="204" max="32767" attributes="0"/>
-                                  <Component id="jRBEstado" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fecha" max="32767" attributes="0"/>
+                                  <Component id="jRBEstado" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jBBuscar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jtid" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,19 +101,19 @@
                   <Component id="jRBEstado" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Component id="fecha" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDC" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBSalir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -203,8 +203,6 @@
         <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="fecha">
-    </Component>
     <Component class="javax.swing.JTextField" name="jtid">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
@@ -214,6 +212,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="id"/>
       </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDC">
     </Component>
   </SubComponents>
 </Form>

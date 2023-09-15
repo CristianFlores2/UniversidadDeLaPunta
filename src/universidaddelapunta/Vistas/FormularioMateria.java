@@ -181,7 +181,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTCodigoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        Materia ma = new Materia(Integer.parseInt(jTCodigo.getText()), jTNombre.getText(), Integer.parseInt(jTAño.getText()), jCBEstado.getVerifyInputWhenFocusTarget());
+        Materia ma = new Materia(jTNombre.getText(), Integer.parseInt(jTAño.getText()), jCBEstado.getVerifyInputWhenFocusTarget());
         
         materiaData a = new materiaData();
         
