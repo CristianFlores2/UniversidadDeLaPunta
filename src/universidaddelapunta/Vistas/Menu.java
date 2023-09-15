@@ -25,6 +25,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,6 +114,15 @@ public class Menu extends javax.swing.JFrame {
                 jMenu5ActionPerformed(evt);
             }
         });
+
+        jMenuItem6.setText("salir");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem6);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -185,8 +195,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
    
     public static void main(String args[]) {
@@ -211,5 +225,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
