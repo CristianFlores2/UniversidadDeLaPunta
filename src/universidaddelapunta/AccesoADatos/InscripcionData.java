@@ -164,7 +164,7 @@ public class InscripcionData {
         ps.setInt(3, idMateria);
         int exito= ps.executeUpdate();        
         if(exito==1){
-            JOptionPane.showMessageDialog(null, "Alumno modificado");
+            JOptionPane.showMessageDialog(null, "Nota modificada");
         }        
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");

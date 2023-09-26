@@ -6,6 +6,7 @@
 package universidaddelapunta.Vistas;
 
 
+import javax.swing.JOptionPane;
 import universidaddelapunta.AccesoADatos.materiaData;
 import universidaddelapunta.Entidades.Materia;
 
@@ -207,13 +208,21 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        if(jTCodigo.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Debe completar el campo de codigo con un entero");
+            return ;
+        }
+        try{
         materiaData a = new materiaData();
-        
         Materia m = a.buscarMateria(Integer.parseInt(jTCodigo.getText()));
         
         jTNombre.setText(m.getNombre());
         jTAño.setText(Integer.toString(m.getAnio()));
         jCBEstado.setSelected(m.getEstado());
+        }
+        catch(NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "Debe completar el campo de codigo con un entero");
+        }
         
     }//GEN-LAST:event_jBBuscarActionPerformed
 

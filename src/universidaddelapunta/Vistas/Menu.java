@@ -43,6 +43,11 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Alumno");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Formulario de Alumno ");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +206,10 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
    
     public static void main(String args[]) {
